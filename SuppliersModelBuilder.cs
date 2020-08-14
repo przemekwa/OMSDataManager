@@ -7,18 +7,18 @@ using System.Text;
 
 namespace OMSDataManager
 {
-    public class ArticleGroupModelBuilder : IModelBuilder<ArticleGroup>
+    public class SuppliersModelBuilder : IModelBuilder<Suppliers>
     {
         private string filePath;
 
-        public ArticleGroupModelBuilder(string filePath)
+        public SuppliersModelBuilder(string filePath)
         {
             this.filePath = filePath;
         }
 
-        public List<ArticleGroup> Build()
+        public List<Suppliers> Build()
         {
-            var result = new List<ArticleGroup>();
+            var result = new List<Suppliers>();
 
             var lines = File.ReadAllLines(filePath);
 
@@ -30,20 +30,18 @@ namespace OMSDataManager
             {
                 var split = lines[i].SplitWithDoubleQuots(',');
 
-                var ag = new ArticleGroup();
+                var sup = new Suppliers();
 
-                ag.ARTYKUL = Utils.GetStructNullValue<int>(split[0]).Value;
-                ag.GRUPA_MASTER = Utils.GetStructNullValue<int>(split[1]).Value;
-                ag.GRUPA_JEDNOSTKA = Utils.GetStructNullValue<int>(split[2]).Value;
-                ag.GRUPA_WAWI = Utils.GetStructNullValue<int>(split[3]).Value;
-                ag.DataAktualizacji = DateTime.Now;
-
-                result.Add(ag);
+                sup.NRDOSTAWCY = Utils.GetStructNullValue<int>(split[0]).Value;
+                sup.NRSAPDOSTAWCY = Utils.GetStructNullValue<int>(split[1]);
+                sup.NAZWA1 = split[2];
+                sup.NAZWA2 = split[3];
+                sup.DATAIMPORTU = DateTime.Now;
+                
+                result.Add(sup);
                 Console.SetCursorPosition(0, Console.CursorTop);
                 Console.Write($"{i} row(s)");
             }
-
-            Console.Write(" - read successful");
 
             return result;
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OMSDataManager.Models;
+using System;
+using System.Data.Entity;
 using System.IO;
 
 namespace OMSDataManager
@@ -20,42 +22,58 @@ namespace OMSDataManager
             Console.WriteLine("Start");
             var context = new MainDbContext("Data Source=localhost;Initial Catalog=SelgrosMainDB_OMS;User Id=SelgrosPGLogin;Password=SelgrosPGLogin;");
 
-           // CreateArticleModel(context);
-            CreateArticleGroupModel(context);
+            //Create<ArticleModel>(
+            //   context,
+            //   context.Articles,
+            //   new ArticleModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_articles.csv")));
 
+            //Console.WriteLine();
+
+            //Create<ArticleGroup>(
+            //    context, 
+            //    context.ArticleGroup, 
+            //    new ArticleGroupModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_articles_groups.csv")));
+
+            //Console.WriteLine();
+
+            //Create<Suppliers>(
+            //    context,
+            //    context.Suppliers,
+            //    new SuppliersModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_suppliers.csv")));
+
+            Console.WriteLine();
+
+            Create<SuppliersMails>(
+               context,
+               context.SuppliersMails,
+               new SuppliersMailsModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_suppliers_emails.csv")));
+
+            Console.WriteLine();
             Console.WriteLine("Stop");
         }
 
-        private static void CreateArticleModel(MainDbContext context)
+        private static void Create<T>(MainDbContext context, DbSet<T> dbSet, IModelBuilder<T> modelBuilder) where T: class
         {
-            var articleModelList = new ArticleModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_articlescsv")).Build();
+            var list = modelBuilder.Build();
 
-            foreach (var oneList in articleModelList.SplitInToParts(1))
+            foreach (var oneList in list.SplitInToParts(1))
             {
+                Console.WriteLine();
+                Console.Write("Save in DB - ");
+
                 foreach (var item in oneList)
                 {
-                    context.Articles.Add(item);
+                    dbSet.Add(item);
                 }
 
+                var erros = context.GetValidationErrors();
+
                 context.SaveChanges();
-                Console.WriteLine("Save in DB");
+
+                Console.Write("save successful");
+                
             }
         }
 
-        private static void CreateArticleGroupModel(MainDbContext context)
-        {
-            var articleGroupModelList = new ArticleGroupModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_articles_groups.csv")).Build();
-
-            foreach (var oneList in articleGroupModelList.SplitInToParts(1))
-            {
-                foreach (var item in oneList)
-                {
-                    context.ArticleGroup.Add(item);
-                }
-
-                context.SaveChanges();
-                Console.WriteLine("Save in DB");
-            }
-        }
     }
 }

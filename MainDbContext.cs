@@ -19,10 +19,76 @@ namespace OMSDataManager
 
         public virtual DbSet<ArticleModel> Articles { get; set; }
         public virtual DbSet<ArticleGroup> ArticleGroup { get; set; }
+        public virtual DbSet<Suppliers> Suppliers { get; set; }
+        public virtual DbSet<SuppliersMails> SuppliersMails { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<SuppliersMails>()
+             .Property(e => e.DZIAL)
+             .IsUnicode(false);
+
+            modelBuilder.Entity<SuppliersMails>()
+                .Property(e => e.KRAJ)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<SuppliersMails>()
+                .Property(e => e.EMAIL1)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<SuppliersMails>()
+                .Property(e => e.EMAIL2)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<SuppliersMails>()
+                .Property(e => e.EMAIL3)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<SuppliersMails>()
+                .Property(e => e.EMAIL4)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Suppliers>()
+                .Property(e => e.NIP)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Suppliers>()
+                .Property(e => e.NAZWA1)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Suppliers>()
+                .Property(e => e.NAZWA2)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Suppliers>()
+                .Property(e => e.KRAJ)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Suppliers>()
+                .Property(e => e.ADRES)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Suppliers>()
+                .Property(e => e.KODPOCZTOWY)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Suppliers>()
+                .Property(e => e.MIASTO)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Suppliers>()
+                .Property(e => e.OSOBAKONTAKTOWA)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Suppliers>()
+                .Property(e => e.TELEFON1)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Suppliers>()
+                .Property(e => e.TELEFON2)
+                .IsUnicode(false);
 
             modelBuilder.Entity<ArticleModel>()
                 .Property(e => e.ZAKLADNAZWA)

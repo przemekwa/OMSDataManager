@@ -118,3 +118,40 @@ CREATE TABLE [dbo].[Artykuly_Grupowanie](
 ) ON [PRIMARY]
 GO
 
+
+CREATE TABLE [dbo].[Dostawcy](
+	[NRDOSTAWCY] [int] NOT NULL,
+	[NRSAPDOSTAWCY] [int] NULL,
+	[NIP] [varchar](50) NULL,
+	[NAZWA1] [varchar](100) NULL,
+	[NAZWA2] [varchar](100) NULL,
+	[KRAJ] [varchar](10) NULL,
+	[ADRES] [varchar](100) NULL,
+	[KODPOCZTOWY] [varchar](10) NULL,
+	[MIASTO] [varchar](100) NULL,
+	[STATUS] [tinyint] NULL,
+	[BRANZA] [smallint] NULL,
+	[TERMINRABATUPROM] [int] NULL,
+	[OSOBAKONTAKTOWA] [varchar](100) NULL,
+	[TELEFON1] [varchar](100) NULL,
+	[TELEFON2] [varchar](100) NULL,
+	[DATAIMPORTU] [datetime] NOT NULL
+) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[Dostawcy_AdresyMailowe](
+	[ID] [int] NOT NULL,
+	[NRDOSTAWCY] [int] NOT NULL,
+	[DZIAL] [varchar](10) NOT NULL,
+	[BRANZA] [int] NOT NULL,
+	[PODDOSTAWCA] [smallint] NOT NULL,
+	[KRAJ] [char](1) NULL,
+	[EMAIL1] [varchar](100) NULL,
+	[EMAIL2] [varchar](100) NULL,
+	[EMAIL3] [varchar](100) NULL,
+	[EMAIL4] [varchar](100) NULL,
+	[DataAktualizacji] [datetime] NOT NULL
+) ON [PRIMARY]
+GO
+
