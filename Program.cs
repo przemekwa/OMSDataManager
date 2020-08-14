@@ -6,8 +6,14 @@ namespace OMSDataManager
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("OMSDataManager");
+            Console.WriteLine(@"   ____  __  ________    ____        __           __  ___                                 ");
+            Console.WriteLine(@"  / __ \/  |/  / ___/   / __ \____ _/ /_____ _   /  |/  ____ _____  ____ _____ ____  _____");
+            Console.WriteLine(@" / / / / /|_/ /\__ \   / / / / __ `/ __/ __ `/  / /|_/ / __ `/ __ \/ __ `/ __ `/ _ \/ ___/");
+            Console.WriteLine(@"/ /_/ / /  / /___/ /  / /_/ / /_/ / /_/ /_/ /  / /  / / /_/ / / / / /_/ / /_/ /  __/ /    ");
+            Console.WriteLine(@"\____/_/  /_//____/  /_____/\__,_/\__/\__,_/  /_/  /_/\__,_/_/ /_/\__,_/\__, /\___/_/     ");
+            Console.WriteLine(@"                                                                      /____/                                 ");
 
+            Console.WriteLine("Start");
             var context = new MainDbContext("Data Source=localhost;Initial Catalog=SelgrosMainDB_OMS;User Id=SelgrosPGLogin;Password=SelgrosPGLogin;");
 
             var articleModelList = new ArticleModelBuilder(@"C:\Users\walkowskip\Downloads\pcb\pcb\t_articles.csv").Build();
@@ -20,32 +26,10 @@ namespace OMSDataManager
                 }
 
                 context.SaveChanges();
+                Console.WriteLine("Save in DB");
             }
 
-
-            //context.Articles.Add(new Models.ArticleModel
-            //{
-            //    ID = Guid.NewGuid(),
-            //    artCount = 0,
-            //    articlePlantsCSV = "",
-            //    ARTOPIS1 = "",
-            //    ARTOPIS2 = "",
-            //    ARTYKUL = 12344,
-            //    BRANZA = 23,
-            //    BRANZANAZWA = "ss",
-            //    BRANZASPECJALNA = 23,
-            //    CalculateDate = DateTime.Now,
-            //    CENASPRZEDAZY = 34,
-            //    CENASPRZKONCES = 45,
-            //    CENAZAKUPU = 4,
-            //    CENAZAKUPURK = 3,
-            //    DATAAKTUALIZACJI = DateTime.Now,
-            //    DATAPZ = 2,
-            //    DOSTAWCA = 3435,
-            //    DOSTNAZWA = "",
-            //});
-
-            //context.SaveChanges();
+            Console.WriteLine("Stop");
         }
     }
 }

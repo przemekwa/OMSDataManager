@@ -30,6 +30,7 @@ namespace OMSDataManager
 
                 var am = new ArticleModel();
 
+                am.ID = Guid.NewGuid();
                 am.ARTOPIS1 = split[0];
                 am.ARTYKUL = int.Parse(split[1]);
                 am.BRANZA = short.Parse(split[2]);
@@ -53,43 +54,38 @@ namespace OMSDataManager
                 am.ILOSCPRM6MIES = GetStructNullValue<decimal>(split[20]);
                 am.ILOSCSPRZEDAZY = GetStructNullValue<short>(split[21]);
                 am.ILSPRZ21DNI = GetStructNullValue<decimal>(split[22]);
-                am.ILSPRZ6MIES = GetStructNullValue<decimal>(split[22]);
-                am.ILSPRZBR = GetStructNullValue<decimal>(split[23]);
-                am.KZ_SORTART = split[24];
-                am.KZABC = split[25];
-                am.MARZA28DNI = GetStructNullValue<decimal>(split[26]);
-                am.MARZAPLN6MIES = GetStructNullValue<decimal>(split[27]);
-                am.MARZAPLNBR = GetStructNullValue<decimal>(split[28]);
-                am.OBR15DNI = GetStructNullValue<decimal>(split[29]);
-                am.PODGRUPA = GetStructNullValue<short>(split[30]);
-                am.PODGRUPANAZWA = split[31];
-                am.PODDOSTAWCA = GetStructNullValue<int>(split[32]);
-                am.STRWYS = GetStructNullValue<decimal>(split[33]);
-                am.VAT = GetStructNullValue<short>(split[34]);
-                am.VK0P = GetStructNullValue<decimal>(split[35]);
-                am.WARTOSCPRM28DNI = GetStructNullValue<decimal>(split[36]);
-                am.WARTOSCPRM6MIES = GetStructNullValue<decimal>(split[37]);
-                am.WASPRZ28DNI = GetStructNullValue<decimal>(split[38]);
-                am.WASPRZ6MIES = GetStructNullValue<decimal>(split[39]);
-                am.WASPRZPRBR = GetStructNullValue<decimal>(split[40]);
-                am.ZAKLAD = GetStructNullValue<short>(split[41]).Value;
-                am.ZAKLADNAZWA = split[42];
-                am.ZALEGLE = GetStructNullValue<decimal>(split[43]);
-                am.ZALISTOWANY = split[44];
-                am.ZAPAS = GetStructNullValue<decimal>(split[45]);
+                am.ILSPRZ6MIES = GetStructNullValue<decimal>(split[23]);
+                am.ILSPRZBR = GetStructNullValue<decimal>(split[24]);
+                am.KZ_SORTART = split[25];
+                am.KZABC = split[26];
+                am.MARZA28DNI = GetStructNullValue<decimal>(split[27]);
+                am.MARZAPLN6MIES = GetStructNullValue<decimal>(split[28]);
+                am.MARZAPLNBR = GetStructNullValue<decimal>(split[29]);
+                am.OBR15DNI = GetStructNullValue<decimal>(split[30]);
+                am.PODGRUPA = GetStructNullValue<short>(split[31]);
+                am.PODGRUPANAZWA = split[32];
+                am.PODDOSTAWCA = GetStructNullValue<int>(split[33]);
+                am.STRWYS = GetStructNullValue<decimal>(split[34]);
+                am.VAT = GetStructNullValue<short>(split[35]);
+                am.VK0P = GetStructNullValue<decimal>(split[36]);
+                am.WARTOSCPRM28DNI = GetStructNullValue<decimal>(split[37]);
+                am.WARTOSCPRM6MIES = GetStructNullValue<decimal>(split[38]);
+                am.WASPRZ28DNI = GetStructNullValue<decimal>(split[39]);
+                am.WASPRZ6MIES = GetStructNullValue<decimal>(split[40]);
+                am.WASPRZPRBR = GetStructNullValue<decimal>(split[41]);
+                am.ZAKLAD = GetStructNullValue<short>(split[42]).Value;
+                am.ZAKLADNAZWA = split[43];
+                am.ZALEGLE = GetStructNullValue<decimal>(split[44]);
+                am.ZALISTOWANY = split[45];
+                am.ZAPAS = GetStructNullValue<decimal>(split[46]);
 
 
                 result.Add(am);
                 Console.SetCursorPosition(0, Console.CursorTop);
-                Console.Write( $"{i} - OK");
+                Console.Write( $"{i} row(s)");
             }
-           
-
 
             return result;
-
-
-
         }
 
         private T? GetStructNullValue<T>(string v) where T: struct
@@ -107,7 +103,7 @@ namespace OMSDataManager
             }
             catch (Exception)
             {
-                Console.WriteLine($"Error in {v} for {nameof(T)}");
+                Console.WriteLine($"Error in {v} for {typeof(T).Name}");
               
             }
 
