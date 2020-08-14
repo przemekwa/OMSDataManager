@@ -24,7 +24,9 @@ namespace OMSDataManager
 
             Console.WriteLine($"Start read file {filePath}");
 
-            for (int i = 1; i < 100; i++)
+            var rowsLength = Program.MAX_ROWS == -1 ? lines.Length : Program.MAX_ROWS;
+
+            for (int i = 1; i < rowsLength; i++)
             {
                 var split = lines[i].SplitWithDoubleQuots(',');
 

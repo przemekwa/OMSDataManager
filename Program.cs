@@ -1,9 +1,13 @@
 ﻿using System;
+using System.IO;
 
 namespace OMSDataManager
 {
-    class Program
+    public class Program
     {
+        const string PATH_TO_FOLDER_WITH_CSV_FILE = @"C:\Users\walkowskip\Downloads\pcb\pcb\";
+        public const int MAX_ROWS = 100; // all rows set -1;
+
         static void Main(string[] args)
         {
             Console.WriteLine(@"   ____  __  ________    ____        __           __  ___                                 ");
@@ -24,7 +28,7 @@ namespace OMSDataManager
 
         private static void CreateArticleModel(MainDbContext context)
         {
-            var articleModelList = new ArticleModelBuilder(@"C:\Users\walkowskip\Downloads\pcb\pcb\t_articles.csv").Build();
+            var articleModelList = new ArticleModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_articlescsv")).Build();
 
             foreach (var oneList in articleModelList.SplitInToParts(1))
             {
@@ -40,7 +44,7 @@ namespace OMSDataManager
 
         private static void CreateArticleGroupModel(MainDbContext context)
         {
-            var articleGroupModelList = new ArticleGroupModelBuilder(@"C:\Users\walkowskip\Downloads\pcb\pcb\t_articles_groups.csv").Build();
+            var articleGroupModelList = new ArticleGroupModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_articles_groups.csv")).Build();
 
             foreach (var oneList in articleGroupModelList.SplitInToParts(1))
             {
