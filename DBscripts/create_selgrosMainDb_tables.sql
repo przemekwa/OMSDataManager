@@ -106,4 +106,15 @@ GO
 ALTER TABLE [dbo].[Artykuly] ADD  CONSTRAINT [DF_Artykuly_artCount]  DEFAULT ((0)) FOR [artCount]
 GO
 
+GO
+
+
+CREATE TABLE [dbo].[Artykuly_Grupowanie](
+	[ARTYKUL] [int] NOT NULL,
+	[GRUPA_MASTER] [int] NOT NULL,
+	[GRUPA_WAWI] [int] NOT NULL,
+	[GRUPA_JEDNOSTKA] [int] NOT NULL,
+	[DataAktualizacji] [datetime] NOT NULL
+) ON [PRIMARY]
+GO
 

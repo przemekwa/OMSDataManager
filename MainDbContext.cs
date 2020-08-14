@@ -18,6 +18,7 @@ namespace OMSDataManager
 
 
         public virtual DbSet<ArticleModel> Articles { get; set; }
+        public virtual DbSet<ArticleGroup> ArticleGroup { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

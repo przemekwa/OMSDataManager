@@ -16,6 +16,14 @@ namespace OMSDataManager
             Console.WriteLine("Start");
             var context = new MainDbContext("Data Source=localhost;Initial Catalog=SelgrosMainDB_OMS;User Id=SelgrosPGLogin;Password=SelgrosPGLogin;");
 
+           // CreateArticleModel(context);
+            CreateArticleGroupModel(context);
+
+            Console.WriteLine("Stop");
+        }
+
+        private static void CreateArticleModel(MainDbContext context)
+        {
             var articleModelList = new ArticleModelBuilder(@"C:\Users\walkowskip\Downloads\pcb\pcb\t_articles.csv").Build();
 
             foreach (var oneList in articleModelList.SplitInToParts(1))
@@ -28,8 +36,22 @@ namespace OMSDataManager
                 context.SaveChanges();
                 Console.WriteLine("Save in DB");
             }
+        }
 
-            Console.WriteLine("Stop");
+        private static void CreateArticleGroupModel(MainDbContext context)
+        {
+            var articleGroupModelList = new ArticleGroupModelBuilder(@"C:\Users\walkowskip\Downloads\pcb\pcb\t_articles_groups.csv").Build();
+
+            foreach (var oneList in articleGroupModelList.SplitInToParts(1))
+            {
+                foreach (var item in oneList)
+                {
+                    context.ArticleGroup.Add(item);
+                }
+
+                context.SaveChanges();
+                Console.WriteLine("Save in DB");
+            }
         }
     }
 }
