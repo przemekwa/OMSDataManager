@@ -8,6 +8,6 @@ Gdy baza i tabela są gotowe to możemy odpalić program OMSDataManager.
 
 W klasie Program.cs zmieniamy ścieżki do folderu z plikam z OMS - stała PATH_TO_FOLDER_WITH_CSV_FILE.
 
-Następnie należy zmienić stała MAX_ROWS aby ustawić domyślną ilość wierszy do wczytania(wierszy jest bardzo dużo > 1mln, wiec dla testów warto ustawić 100)
+Następnie należy zmienić stałą MAX_ROWS aby ustawić domyślną ilość wierszy do wczytania z pliku (wierszy jest bardzo dużo > 1mln, wiec dla testów warto ustawić 100) 
 
-Następnie można proram odpalić i wczytać wiersze i testować działanie programy pcb.
+Następnie można program odpalić i wczytać wiersze i testować działanie programu pcb.
