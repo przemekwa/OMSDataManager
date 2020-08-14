@@ -22,24 +22,24 @@ namespace OMSDataManager
             Console.WriteLine("Start");
             var context = new MainDbContext("Data Source=localhost;Initial Catalog=SelgrosMainDB_OMS;User Id=SelgrosPGLogin;Password=SelgrosPGLogin;");
 
-            //Create<ArticleModel>(
-            //   context,
-            //   context.Articles,
-            //   new ArticleModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_articles.csv")));
+            Create<ArticleModel>(
+               context,
+               context.Articles,
+               new ArticleModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_articles.csv")));
 
-            //Console.WriteLine();
+            Console.WriteLine();
 
-            //Create<ArticleGroup>(
-            //    context, 
-            //    context.ArticleGroup, 
-            //    new ArticleGroupModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_articles_groups.csv")));
+            Create<ArticleGroup>(
+                context,
+                context.ArticleGroup,
+                new ArticleGroupModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_articles_groups.csv")));
 
-            //Console.WriteLine();
+            Console.WriteLine();
 
-            //Create<Suppliers>(
-            //    context,
-            //    context.Suppliers,
-            //    new SuppliersModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_suppliers.csv")));
+            Create<Suppliers>(
+                context,
+                context.Suppliers,
+                new SuppliersModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_suppliers.csv")));
 
             Console.WriteLine();
 
