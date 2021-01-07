@@ -7,7 +7,7 @@ namespace OMSDataManager
 {
     public class Program
     {
-        const string PATH_TO_FOLDER_WITH_CSV_FILE = @"C:\Users\walkowskip\Downloads\pcb\pcb\";
+        const string PATH_TO_FOLDER_WITH_CSV_FILE = @"C:\Users\pogorzelczykp\Downloads\pcb\PCB_22_12_2020\";
         public const int MAX_ROWS = 100; // all rows set -1;
 
         static void Main(string[] args)
@@ -25,7 +25,7 @@ namespace OMSDataManager
             Create<ArticleModel>(
                context,
                context.Articles,
-               new ArticleModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_articles.csv")));
+               new ArticleModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "products.csv")));
 
             Console.WriteLine();
 
@@ -39,16 +39,22 @@ namespace OMSDataManager
             Create<Suppliers>(
                 context,
                 context.Suppliers,
-                new SuppliersModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_suppliers.csv")));
+                new SuppliersModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "suppliers.csv")));
 
             Console.WriteLine();
 
             Create<SuppliersMails>(
                context,
                context.SuppliersMails,
-               new SuppliersMailsModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "t_suppliers_emails.csv")));
+               new SuppliersMailsModelBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "suppliers_emails.csv")));
 
             Console.WriteLine();
+
+            Create<FuturePrices>(
+                context,
+                context.FuturePrices,
+                new FuturePricesBuilder(Path.Combine(PATH_TO_FOLDER_WITH_CSV_FILE, "future_prices.csv")));
+
             Console.WriteLine("Stop");
         }
 

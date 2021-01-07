@@ -155,3 +155,39 @@ CREATE TABLE [dbo].[Dostawcy_AdresyMailowe](
 ) ON [PRIMARY]
 GO
 
+CREATE TABLE [dbo].[CenyZakupuPrzyszle](
+	[ID] [uniqueidentifier] NULL,
+	[ARTYKUL] [int] NOT NULL,
+	[DATAOD] [int] NOT NULL,
+	[DATADO] [int] NOT NULL,
+	[CENAEKLI] [money] NULL,
+	[CENAEKRK] [money] NULL,
+	[DataAktualizacji] [datetime] NOT NULL,
+	[DOSTAWCA] [int] NOT NULL,
+	[ZAKLAD] [int] NOT NULL,
+	[KZEK] [varchar](3) NULL,
+	[BAZA01] [smallint] NULL,
+	[ZNAK01] [smallint] NULL,
+	[RABAT01] [money] NULL,
+	[BAZA02] [smallint] NULL,
+	[ZNAK02] [smallint] NULL,
+	[RABAT02] [money] NULL,
+	[BAZA03] [smallint] NULL,
+	[ZNAK03] [smallint] NULL,
+	[RABAT03] [money] NULL,
+	[BAZA04] [smallint] NULL,
+	[ZNAK04] [smallint] NULL,
+	[RABAT04] [money] NULL,
+	[BAZA05] [smallint] NULL,
+	[ZNAK05] [smallint] NULL,
+	[RABAT05] [money] NULL,
+	[BAZA06] [smallint] NULL,
+	[ZNAK06] [smallint] NULL,
+	[RABAT06] [money] NULL,
+	[TEST] [varchar](10) NULL,
+	[DATAIMPORTU] [smalldatetime] NULL,
+	[ZNACZNIK] [tinyint] NULL,
+	[CENAEKNN_A] [money] NULL,
+	[CENAEKNN_P] [money] NULL
+) ON [PRIMARY]
+GO

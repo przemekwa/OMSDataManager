@@ -18,6 +18,7 @@ namespace OMSDataManager
         public virtual DbSet<ArticleGroup> ArticleGroup { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<SuppliersMails> SuppliersMails { get; set; }
+        public virtual DbSet<FuturePrices> FuturePrices { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

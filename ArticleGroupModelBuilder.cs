@@ -26,7 +26,7 @@ namespace OMSDataManager
 
             for (int i = 1; i < rowsLength; i++)
             {
-                var split = lines[i].SplitWithDoubleQuots(',');
+                var split = lines[i].SplitWithDoubleQuots(';');
 
                 var ag = new ArticleGroup();
 

@@ -25,5 +25,19 @@ namespace OMSDataManager
 
             return result;
         }
+
+        public static string GetBoolValue(string value)
+        {
+            switch (value)
+            {
+                case "false":
+                    return "0";
+                case "true":
+                    return "1";
+                default:
+                    Console.WriteLine($"Error in {value} when converting to bool. Returning null.");
+                    return null;
+            }
+        }
     }
 }
