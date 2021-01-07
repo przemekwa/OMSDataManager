@@ -7,7 +7,7 @@ namespace OMSDataManager
 {
     public class Program
     {
-        const string PATH_TO_FOLDER_WITH_CSV_FILE = @"C:\Users\walkowskip\Downloads\pcb\pcb\";
+        const string PATH_TO_FOLDER_WITH_CSV_FILE = @"C:\Users\pogorzelczykp\Downloads\pcb\PCB_22_12_2020\";
         public const int MAX_ROWS = 100; // all rows set -1;
 
         static void Main(string[] args)
